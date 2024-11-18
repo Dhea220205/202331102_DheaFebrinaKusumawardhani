@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Praktikum</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #cae3ff;
+            color: #e4ecff;
+            transition: background-color 0.3s;
+        }
+            /*Dhea Febrina Kusumawardhani_202331102*/
+        h1, h2, h3 {
+            text-align: center;
+            color: #2c3e50;
+            margin: 20px 0;
+        }
+
+        h3 { cursor: pointer; font-weight: bold; font-size: 1.25em; }
+        h3:hover { color: #1abc9c; }
+
+        .content {
+            display: none;
+            background: #183f86;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            max-width: 900px;
+            margin: auto;
+            text-align: justify;
+            border: 2px solid #3498db;
+        }
+        /*Dhea Febrina Kusumawardhani_202331102*/
+        .messy-content {
+            background: #000;
+            color: #ff00ff;
+            font-size: 18px;
+            border: 4px dashed #ff0000;
+            padding: 25px;
+            transform: rotate(5deg);
+            border-radius: 10px;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 2px;
+        }
+
+        .messy-mode h1, .messy-mode h2, .messy-mode h3 {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            color: #ff0;
+            text-transform: uppercase;
+            font-size: 14px;
+            transform: rotate(-5deg);
+            letter-spacing: 4px;
+        }
+
+        .toggle-button {
+            display: block;
+            width: 80%;
+            max-width: 250px;
+            margin: 30px auto;
+            padding: 12px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            font-size: 1.1em;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+/*Dhea Febrina Kusumawardhani_202331102*/
+        .toggle-button:hover { background-color: #2980b9; }
+        .messy-mode { background-color: #ff006a; color: #fff; }
+    </style>
+</head>
+<body>
+
+    <h1>LAPORAN TEORI</h1>
+    <h2>DHEA FEBRINA KUSUMAWARDHANI | 202331102</h2>
+
+    <hr style="border: none; border-top: 3px solid #183f86">
+    <h3 onclick="toggleContent('pemwebContent')">Penggunaan HTML, CSS, dan JavaScript pada Pemrograman Web</h3>
+    <div id="pemwebContent" class="content">
+        <p onclick="toggleContent('htmlContent')">HTML pada Pemrograman Web</p>
+        <div id="htmlContent" class="content">
+            <p>HHTML atau <i>Hyper Text Markup Language</i> adalah salah satu bahasa pemrograman 
+                <i>markup</i> yang berfungsi untuk merancang dan mengelola struktur dari suatu halaman <i>website</i>. 
+                HTML digunakan sebagai dasar dalam struktur yang akan dibuat untuk laman website dengan membuat dan mengolah elemen-elemen yang dibutukan seperti teks, gambar,
+                 video, tabel, form, atau <i>link</i> untuk menuju laman <i>website</i> lain.
+            </p>
+        </div>
+        <p onclick="toggleContent('cssContent')">CSS pada Pemrograman Web</p>
+        <div id="cssContent" class="content">
+            <p>CSS digunakan untuk penentuan tampilan yang diperlukan sepertijenis huruf, ukuran huruf, warna huruf, warna latar belakang, ukuran gambar, ukuran video, warna tabel, dan sebagainya.</p>
+        </div>
+        <p onclick="toggleContent('jsContent')">JavaScript pada Pemrograman Web</p>
+        <div id="jsContent" class="content">
+            <p>JavaScript memaksimalkan interaksi, seperti menekan tombol atau memasukkan data melalui form untuk mendapatkan respon yang sesuai.</p>
+        </div>
+    </div>
+
+    <hr style="border: none; border-top: 3px solid #183f86">
+    <h3 onclick="toggleContent('integrationContent')">Pengintegrasian HTML, CSS, dan JavaScript</h3>
+    <div id="integrationContent" class="content">
+        <p>Kolaborasi antara HTML, CSS, JavaScript dalam pembuatan <i>website</i> dapat menambah kesan menarik dan interaktif dengan pengguna sehingga pengembangan laman 
+            <i>website</i> dapat berjalan dan bekerja secara optimal pada perangkat apapun seperti <i>laptop</i> atau <i>handphone</i> meskipun ukuran layarnya berbeda. </p>
+    </div>
+
+    <hr style="border: none; border-top: 3px solid #183f86">
+    <button class="toggle-button" onclick="toggleMode()">Tekan Untuk Merubah Tampilan Halaman</button>
+
+    <script>
+        let isMessyMode = false;
+
+        function toggleContent(contentId) {
+            const content = document.getElementById(contentId);
+            if (content.style.display === "none" || content.style.display === "") {
+                if (confirm("Apakah Anda ingin membuka konten ini?")) {
+                    content.style.display = "block";
+                }
+            } else {
+                if (confirm("Apakah Anda ingin menutup konten ini?")) {
+                    content.style.display = "none";
+                }
+            }
+        }
+/*Dhea Febrina Kusumawardhani_202331102*/
+        function toggleMode() {
+            isMessyMode = !isMessyMode;
+            document.querySelectorAll('.content').forEach(function(content) {
+                content.classList.toggle('messy-content', isMessyMode);
+            });
+            document.body.classList.toggle('messy-mode', isMessyMode);
+            document.querySelector('.toggle-button').innerText = isMessyMode ? 'Beralih ke Halaman Rapi' : 'Beralih ke Halaman Berantakan';
+        }
+    </script>
+
+</body>
+</html>
